@@ -44,14 +44,24 @@ fn main() {
         println!("Tanlovni kiriting: 1. qo'shish, 2. ko'rish, 3. o'chirish, 4. chiqish");
         let mut tanlash = String::new();
         io::stdin().read_line(&mut tanlash).expect("qiymat kiritishda xatolik");
-        let tanlash: u32 = tanlash.trim().parse().expect("raqam kiriting");
+        let tanlash: u32 = match tanlash.trim().parse() {
+            Ok(res) => res,
+            Err(_) => {
+                println!("Notug'ri tanlov ");
+                continue;
+            }
+        };
 
         match tanlash {
             1 => {
                 println!("Vazifani kiriting:");
                 let mut vazifa = String::new();
                 io::stdin().read_line(&mut vazifa).expect("vazifa kiritishda xatolik");
-                toso_list.push(vazifa.trim().to_string());
+                let vazifa = vazifa.trim();
+
+                if vazifa.is_empty() {println!("matin kiritilmagan"); continue; }
+                else if vazifa.parse::<i32>().is_ok() {println!("matin kiriting"); continue;}
+                else {toso_list.push(vazifa.to_string());}
             }
             2 => {
                 println!("Sizning vazifalaringiz:");
