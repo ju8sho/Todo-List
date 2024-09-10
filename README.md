@@ -20,6 +20,8 @@ Loyihani ishga tushirgandan so'ng, dasturda quyidagi menyu chiqadi:
 3. Chiqish
 ```
 ## Loyihaning tuzilishi
+```
 main.rs: Dasturga kirish nuqtasi.
 db.rs: Ma'lumotlar bazasi bilan bog'liq funksiyalar.
 ui.rs: Foydalanuvchi interfeysi funksiyalari.
+```
