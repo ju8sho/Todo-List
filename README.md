@@ -2,8 +2,6 @@
 
 Bu loyiha SQLite va `rusqlite` kutubxonasidan foydalanib, vazifalar ro'yxatini boshqarish uchun yozilgan. Rust dasturlash tili orqali yangi vazifalar qo‘shish, ularni ko‘rish va boshqarish imkonini beradi.
 
-![To-Do List Screenshot](rustSQL.png)
-
 ## O'rnatish
 
 Loyihani ishga tushirish uchun quyidagi bosqichlarni bajaring:
