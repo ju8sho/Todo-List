@@ -1,0 +1,34 @@
+
+
+## 1. Todo List Dasturi
+
+### Reja:
+
+Maqsad:
+Foydalanuvchilarga vazifalar ro'yxatini yaratish, ularni qo'shish, ko'rish, va o'chirish imkoniyatini beruvchi dastur.
+
+Bosqichlar:
+1. Oddiy interfeys va menyuni yaratish.
+2. Vazifalarni qo'shish va ko'rish funksiyalarini qo'shish.
+3. Vazifalarni o'chirish imkoniyatini qo'shish (ixtiyoriy).
+4. Dasturdan chiqish qismiga ishlov berish.
+
+Algoritm:
+1. Bo'sh Vec<String> (vazifalar ro'yxati) yaratish.
+2. Foydalanuvchidan tanlovni so'rash:
+   - 1. Vazifa qo'shish.
+   - 2. Vazifalarni ko'rish.
+   - 3. Vazifani o'chirish (ixtiyoriy).
+   - 4. Chiqish.
+
+3. Agar foydalanuvchi 1-ni tanlasa:
+   - Foydalanuvchidan vazifani kiriting.
+   - Vazifani Vec<String> ga qo'shing.
+4. Agar foydalanuvchi 2-ni tanlasa:
+   - Vec<String> dagi barcha vazifalarni ko'rsatish.
+5. Agar foydalanuvchi 3-ni tanlasa (ixtiyoriy):
+   - Foydalanuvchidan o'chirilishi kerak bo'lgan vazifaning indeksini kiriting.
+   - Vazifani Vec<String> dan o'chirish.
+6. Agar foydalanuvchi 4-ni tanlasa:
+   - Dasturdan chiqish.
+7. Qadamlarni qayta bajarish.
