@@ -37,8 +37,9 @@ fn add_vazifa_ui(ulanish: &Connection) {
 
 fn vazifalar_toplami_ui(ulanish: &Connection) {
     let vazifalar = db::get_vazifa(ulanish).expect("Vazifalarni olishda xatolk");
-    for (id, tavsifi, bajarilgan) in vazifalar {
-        let status = if bajarilgan {"Bajarilgan"} else {"Bajarilmagan"};
-        println!("{}: {} [{}]",id, tavsifi, status);
+    for vazifa in vazifalar {
+        let status = if vazifa.bajarilgan {"Bajarilgan"} else {"Bajarilmagan"};
+        println!("{}: {} [{}]", vazifa.id, vazifa.tavsifi, status);
     }
+    
 } 

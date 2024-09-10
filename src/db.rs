@@ -1,5 +1,7 @@
 use rusqlite::{Connection, Result};
 
+use crate::struktura::Vazifa;
+
 //tablitsa yaratamiz
 pub fn initialize_db() -> Result<Connection> {
     let ulanish = Connection::open("todo.db")?;
@@ -24,20 +26,21 @@ pub fn add_data(ulanish: &Connection, tavsifi: &str) -> Result<()> {
     Ok(())
 }
 
-pub fn get_vazifa(ulanish: &Connection) -> Result<Vec<(i32, String, bool)>> {
+pub fn get_vazifa(ulanish: &Connection) -> Result<Vec<Vazifa>> {
     let mut stmt = ulanish.prepare("SELECT id, tavsifi, bajarilgan FROM vazifalar")?;
     let vazifa_iter = stmt.query_map([],|row| {
-        Ok((
-            row.get(0)?, //id
-            row.get(1)?, //tavsifi
-            row.get(2)?, // vazifalarni bajarilganlik haqida
-        ))
+        Ok(Vazifa {
+            id: row.get(0).unwrap_or(0),
+            tavsifi: row.get(1).unwrap_or_else(|_| "Nomalum vazifa".to_string()),
+            bajarilgan: row.get(2).unwrap_or(false) // Null bo'lsa, bajarilmagan (false) deb hisoblash
+        })
         
     })?;
 
     let mut vazifalar = Vec::new();
-    for i in vazifa_iter {
-        vazifalar.push(i?);
+    for vazifa in vazifa_iter {
+        vazifalar.push(vazifa?);
+       
     }
     Ok(vazifalar)
 }
